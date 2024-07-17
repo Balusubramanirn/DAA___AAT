@@ -1,0 +1,33 @@
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+def quickSort(arr):
+    pivot = arr[0]  # The pivot element
+    left = []
+    right = []
+    
+    for num in arr[1:]:
+        if num < pivot:
+            left.append(num)
+        else:
+            right.append(num)
+    
+    return left + [pivot] + right
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = quickSort(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
